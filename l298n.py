@@ -1,4 +1,4 @@
-import RPI.GPIO as GPIO
+import RPi.GPIO as GPIO
 from time import sleep
 
 class L298N:
@@ -19,25 +19,25 @@ class L298N:
 
         return
 
-    def stop():
+    def stop(self):
         GPIO.output(self.pinA, GPIO.LOW)
         GPIO.output(self.pinB, GPIO.LOW)
         return
 
-    def forward():
+    def forward(self):
         GPIO.output(self.pinA, GPIO.HIGH)
         GPIO.output(self.pinB, GPIO.LOW)
         return
 
-    def backward():
+    def backward(self):
         GPIO.output(self.pinA, GPIO.LOW)
         GPIO.output(self.pinB, GPIO.HIGH)
         return
 
-    def changeDuty(dc=10):
+    def changeDuty(self, dc=10):
         self.p.ChangeDutyCycle(dc)
         return
 
-    def clean():
+    def clean(self):
         GPIO.cleanup([self.pinA, self.pinB]);
         return

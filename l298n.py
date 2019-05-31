@@ -2,11 +2,11 @@ import RPi.GPIO as GPIO
 from time import sleep
 
 class L298N:
-    def __init__(self, pinA, pinB):
+    def __init__(self, pinA, pinB, en):
         self.pinA = pinA
         self.pinB = pinB
+        self.en = en;
 
-        self.en = 25
         GPIO.setmode(GPIO.BCM)
         GPIO.setup(self.pinA, GPIO.OUT)
         GPIO.setup(self.pinB, GPIO.OUT)
